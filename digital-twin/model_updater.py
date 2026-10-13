@@ -364,7 +364,7 @@ def read_latest_records(stream_dir: str = STREAM_DIR) -> list:
                     tail = ch + tail
                     if ch == b"\n" and pos < end - 1:
                         break
-                line = [l for l in tail.decode("utf-8", "ignore").splitlines() if l.strip()]
+                line = [ln for ln in tail.decode("utf-8", "ignore").splitlines() if ln.strip()]
                 if line:
                     records.append(json.loads(line[-1]))
         except (OSError, json.JSONDecodeError):

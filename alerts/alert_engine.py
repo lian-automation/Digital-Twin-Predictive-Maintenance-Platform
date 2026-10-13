@@ -381,7 +381,7 @@ def _run_selftest_scenarios(engine: AlertEngine) -> bool:
 def main():
     parser = argparse.ArgumentParser(description="数字孪生平台 - 告警引擎")
     parser.add_argument("--selftest", action="store_true", help="运行内置场景自检")
-    args = parser.parse_args()
+    parser.parse_args()  # 当前无额外参数，仅做用法校验（--help 可用）
     # 自检失败以非零退出码上报, 便于脚本/CI 感知
     sys.exit(0 if run_selftest() else 1)
 

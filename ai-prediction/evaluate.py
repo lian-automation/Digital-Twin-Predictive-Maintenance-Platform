@@ -36,7 +36,6 @@
 
 import argparse
 import json
-import math
 import os
 import sys
 from datetime import datetime
@@ -47,8 +46,7 @@ for sub in (HERE, os.path.join(PROJECT_ROOT, "data-ingestion")):
     if sub not in sys.path:
         sys.path.insert(0, sub)
 
-from predictive_engine import (PredictiveEngine, RULPredictor, HealthScorer,  # noqa: E402
-                               load_history, DEFAULT_CSV, TICK_HOURS)
+from predictive_engine import (PredictiveEngine, RULPredictor, DEFAULT_CSV, TICK_HOURS)
 from data_simulator import DataSimulator, DEVICES, SIM_TICK_MINUTES  # noqa: E402
 
 # RUL 真值口径: 失效阈值 35 分在校准评分(≈100×健康度)下对应的真值健康度

@@ -294,6 +294,7 @@ class RULPredictor:
         A = np.vstack([np.ones(n), x]).T
         coef, res, _, _ = np.linalg.lstsq(A, y, rcond=None)
         a, b = float(coef[0]), float(coef[1])
+        _ = a  # 截距仅用于可读性说明（y = a + b*x），趋势判断只用斜率 b
         # 每日下降速率: 每 tick = TICK_HOURS 小时
         decline_per_day = -b * 24.0 / TICK_HOURS
         # 拟合残差标准差(置信区间宽度来源)
